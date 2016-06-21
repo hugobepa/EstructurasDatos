@@ -1,0 +1,14 @@
+Nodo inicio=null;
+Nodo fin= null;
+
+Nodo Nuevo = new Nodo(4);
+nuevo.siguiente=null;
+
+inicio=nuevo;
+fin=nuevo;
+
+elimininar Nodo Inicio
+
+1)elemneto inicio
+2)si inicio= fin---->apuntar inicio fin  nulo
+  else  apuntar inicio y el vallor a retonar
