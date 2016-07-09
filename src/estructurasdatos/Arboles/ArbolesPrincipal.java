@@ -24,7 +24,11 @@ public class ArbolesPrincipal {
                 opcio=Integer.parseInt(JOptionPane.showInputDialog(null,
                    "1.AgregarNodo\n"+
                    "2.RecorrerInOrder\n"+
-                   "3.Salir\n"       
+                   "3.RecorrerPreOrder\n"+
+                   "4.RecorrerPostOrder\n"+
+                   "5.BuscarNodo\n"+
+                   "6.EliminarNodo\n"+
+                   "7.Salir\n"       
                    +"Elige Una Opcion...","MENU_ARBOLES",
                    JOptionPane.QUESTION_MESSAGE
                 ));
@@ -50,8 +54,81 @@ public class ArbolesPrincipal {
                          
                           
                          break;
+                    
+                    case 3:  
                          
-                     case 3:  
+                         if(!rm.estVacio())
+                         {
+                             rm.preOrden(rm.raiz);
+                         }else{
+                             JOptionPane.showMessageDialog(null,"Estavacio",
+                                 "Vaciooor",JOptionPane.ERROR_MESSAGE);
+                         }
+                    
+                    case 4:  
+                         
+                         if(!rm.estVacio())
+                         {
+                             rm.postOrden(rm.raiz);
+                         }else{
+                             JOptionPane.showMessageDialog(null,"Estavacio",
+                                 "Vaciooor",JOptionPane.ERROR_MESSAGE);
+                         }     
+                          
+                         break;     
+                    
+                    case 5:  
+                         
+                         if(!rm.estVacio())
+                         {
+                             el=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el numero nodo...","Buscar Nodo",
+                                   JOptionPane.QUESTION_MESSAGE));
+                          
+                         
+                           if(rm.buscarNodo(el)==null)
+                           {
+                                JOptionPane.showMessageDialog(null,"No hay Nodo",
+                                 "Existe no Nodooor",JOptionPane.ERROR_MESSAGE);
+                           }else{
+                                JOptionPane.showMessageDialog(null,"El nodo existe "+el,
+                                 "NodoExiste",JOptionPane.INFORMATION_MESSAGE);
+                                System.out.println("Nodo Encontrado "+rm.buscarNodo(el));
+                           }
+                         }else{
+                             JOptionPane.showMessageDialog(null,"Estavacio",
+                                 "Vaciooor",JOptionPane.ERROR_MESSAGE);
+                         }     
+                          
+                         break;        
+                        
+                    
+                     case 6:  
+                         
+                         if(!rm.estVacio())
+                         {
+                             el=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el numero nodo...","EliminarNodo",
+                                   JOptionPane.QUESTION_MESSAGE));
+                          
+                         
+                           if(rm.eliminarNodo(el)==false)
+                           {
+                                JOptionPane.showMessageDialog(null,"No hay Nodo",
+                                 "Existe no Nodooor",JOptionPane.ERROR_MESSAGE);
+                           }else{
+                                JOptionPane.showMessageDialog(null,"El nodo eliminado "+el,
+                                 "NodoEliminado",JOptionPane.INFORMATION_MESSAGE);
+                                System.out.println("Nodo Eliminado "+rm.eliminarNodo(el));
+                           }
+                         }else{
+                             JOptionPane.showMessageDialog(null,"Estavacio",
+                                 "Vaciooor",JOptionPane.ERROR_MESSAGE);
+                         }     
+                          
+                         break;            
+                        
+                        
+                        
+                     case 7:  
                           JOptionPane.showMessageDialog(null,"Finalizacio",
                                  "It's the End",JOptionPane.ERROR_MESSAGE);
                          break;
@@ -65,7 +142,7 @@ public class ArbolesPrincipal {
                         ,JOptionPane.ERROR_MESSAGE);
                 System.out.println("El error: "+e);
             }
-        } while (opcio!=3);
+        } while (opcio!=7);
     }
             
     
